@@ -31,7 +31,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * │ Ly2  │ Alt │ Cmd  │             │ Ly1 │       │               │ Cmd   │ Alt  │ Left│ Down│Right│
  * └------┴-----┴------┴-------------┴-----┘       └---------------┴-------┴------┴-----┴-----┴-----┘
  */
-[BASE] = LAYOUT_sp64(
+[BASE] = LAYOUT_ymdk_sp64(
   // left hand
   MT(RESET, KC_GRAVE), KC_1,    KC_2,    KC_3,     KC_4,    KC_5,    KC_6,
   KC_TAB,              KC_Q,    KC_W,    KC_E,     KC_R,    KC_T,
@@ -59,7 +59,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * │ Ly2  │     │      │             │ Ly1 │       │               │       │      │     │     │     │
  * └------┴-----┴------┴-------------┴-----┘       └---------------┴-------┴------┴-----┴-----┴-----┘
  */
-[LFUN] = LAYOUT_sp64(
+[LFUN] = LAYOUT_ymdk_sp64(
   // left hand
   KC_ESC,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,  KC_F6,
   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
@@ -87,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * │ Ly2  │     │      │             │ Ly1 │       │               │       │      │     │     │     │
  * └------┴-----┴------┴-------------┴-----┘       └---------------┴-------┴------┴-----┴-----┴-----┘
  */
-[LNUM] = LAYOUT_sp64(
+[LNUM] = LAYOUT_ymdk_sp64(
   // left hand
   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
@@ -115,7 +115,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * │ Ly2  │     │      │             │ Ly1 │       │               │       │      │     │     │     │
  * └------┴-----┴------┴-------------┴-----┘       └---------------┴-------┴------┴-----┴-----┴-----┘
  */
-[LMDA] = LAYOUT_sp64(
+[LMDA] = LAYOUT_ymdk_sp64(
   // left hand
   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,

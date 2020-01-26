@@ -24,6 +24,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "print.h"
 #include "debug.h"
 #include "util.h"
+#include "ymdk_sp64.h"
 
 #ifndef DEBOUNCE
 # define DEBOUNCE	5
