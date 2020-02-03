@@ -16,11 +16,11 @@ Beginne damit die Datei in der QMK Toolbox Anwendung zu laden. Versichere dich d
 
 #### Windows:
 
-``` start . ```
+`start .`
 
 #### macOS:
 
-``` open . ```
+`open .`
 
 Die Firmware-Dateien folgen dabei immer folgendem Schema:
 
@@ -38,12 +38,12 @@ Um deine angepasste Firmware auf deine Tastatur zu flashen musst Du diese erst i
 
 Verschiedene Tastaturen verwenden unterschiedliche Methoden um in den Bootloader-Modus zu gelangen. Wenn dein PCB im Moment QMK oder TMK verwendet und Du keine spezifischen Anweisungen erhalten hast probiere die folgenden Methoden in dieser Reihenfolge:
 
-* Halte beide Shift-Tasten und drücke `Pause`
-* Halte beide Shift-Tasten und drücke `B`
-* Entferne deine Tastatur vom Computer, drücke gleichzeitig `Leertaste` und `B`, verbinde die Tastatur wieder mit dem Computer und warte eine Sekunde bevor Du die Tasten wieder loslässt.
-* Drücke den physischen `RESET`-Knopf auf der Unterseite des PCBs
-* Suche auf dem PCB den Pin mit dem Label `RESET`, verbinde diesen mit deinem GND-Pin
-* Suche auf dem PCB den Pin mit dem Label `BOOT0`, verbinde diesen mit GND und schließe die Tastatur wieder an den PC an TODO: DIS IS DANGEROUS!!
+-   Halte beide Shift-Tasten und drücke `Pause`
+-   Halte beide Shift-Tasten und drücke `B`
+-   Entferne deine Tastatur vom Computer, drücke gleichzeitig `Leertaste` und `B`, verbinde die Tastatur wieder mit dem Computer und warte eine Sekunde bevor Du die Tasten wieder loslässt.
+-   Drücke den physischen `RESET`-Knopf auf der Unterseite des PCBs
+-   Suche auf dem PCB den Pin mit dem Label `RESET`, verbinde diesen mit deinem GND-Pin
+-   Suche auf dem PCB den Pin mit dem Label `BOOT0`, verbinde diesen mit GND und schließe die Tastatur wieder an den PC an TODO: DIS IS DANGEROUS!!
 
 Wenn Du damit erfolgreich warst solltest Du in der QMK Toolbox eine Nachricht sehen die ungefähr so aussieht:
 
@@ -72,7 +72,7 @@ Klicke auf den `Flash`-Knopf in der QMK Toolbox. Die Ausgabe wird ungefähr so a
     Validating...  Success
     0x5600 bytes written into 0x7000 bytes memory (76.79%).
 >>> dfu-programmer atmega32u4 reset
-   
+
 *** DFU device disconnected
 *** Clueboard - Clueboard 66% HotSwap connected -- 0xC1ED:0x2390
 ```
@@ -81,16 +81,17 @@ Klicke auf den `Flash`-Knopf in der QMK Toolbox. Die Ausgabe wird ungefähr so a
 
 Zunächst solltest Du versuchen herauszufinden welchen Bootlader deine Tastatur benutzt. Diese vier Bootloader sind am Weitesten verbreitet:
 
-| MCU | Bootloader |
-| --- | --- |
-| Pro-Micro und Klone | CATERINA |
-| Teensy | Halfkay |
-| OLKB Boards | QMK-DFU |
-| sonstige atmega32u4 | DFU |
+| MCU                 | Bootloader |
+| ------------------- | ---------- |
+| Pro-Micro und Klone | CATERINA   |
+| Teensy              | Halfkay    |
+| OLKB Boards         | QMK-DFU    |
+| sonstige atmega32u4 | DFU        |
 
 Auf der Seite [Flash Anleitung und Bootloader Informationen](de/flashing.md) kannst Du mehr über das Thema erfahren.
 
 Wenn Du weißt welchen Bootloader deine Tastaur verwendet, kannst Du diese Information bei der Kompilation hinzufügen um den Flash-Vorgang mit dem `make`-Befehl zu automatisieren.
+
 ```rules.mk
 ...
 BOOTLOADER = caterina
@@ -107,7 +108,6 @@ Wenn deine Tastaturbelegung z.B den Namen "xzverz" trägt und Du ein rev5 planck
 
     make planck/rev5:xyverz:dfu
 
-
 Nachdem der Vorgang abgeschlossen ist sollte die Ausgabe ungefähr so aussehen:
 
 ```
@@ -116,7 +116,7 @@ Creating load file for flashing: .build/planck_rev5_xyverz.hex        [OK]
 Copying planck_rev5_xyverz.hex to qmk_firmware folder                 [OK]
 Checking file size of planck_rev5_xyverz.hex
  * File size is fine - 18574/28672
- ```
+```
 
 Wenn dieser Punkt erreicht ist wird das Build-Skript alle 5 Sekunden nach einem DFU Bootloader suchen. Dieser Vorgang wird wiederholt bis er erfolgreich ist oder abgebrochen wird.
 
@@ -147,13 +147,13 @@ Wenn diese Nachricht erscheint konnte das Build-Skript den Controller nicht eige
 
 Es gibt verschiedene DFU Befehle um die Firmware auf ein DFU Gerät zu flashen:
 
-* `:dfu` - Dies ist die default Option. Es wird gecheckt ob ein DFU Gerät verfügbar ist, ist dies der Fall wird die Firmware geflasht. Dieser Check wird alle 5 Sekunden ausgeführt bis ein DFU Gerät erkannt wird.
-* `:dfu-ee` - Der Flash-Vorgang benutzt eine `.eep` Datei anstatt einer `.hex` Datei. Dies ist eher unüblich.
-* `:dfu-split-left` - Dies flasht die Firmware wie gewohnt (`:dfu`). Allerdings nur die "linke Seite" der EEPROM für geteilte Tastaturen. _Dies ist ideal für auf Elite C basierenden geteilten Tastaturen._
-* `:dfu-split-right` - Dies flasht die Firmware wie gewohnt (`:dfu`). Allerdings nur die "rechte Seite" der EEPROM für geteilte Tastaturen. _Dies ist ideal für auf Elite C basierenden geteilten Tastaturen._
-
+-   `:dfu` - Dies ist die default Option. Es wird gecheckt ob ein DFU Gerät verfügbar ist, ist dies der Fall wird die Firmware geflasht. Dieser Check wird alle 5 Sekunden ausgeführt bis ein DFU Gerät erkannt wird.
+-   `:dfu-ee` - Der Flash-Vorgang benutzt eine `.eep` Datei anstatt einer `.hex` Datei. Dies ist eher unüblich.
+-   `:dfu-split-left` - Dies flasht die Firmware wie gewohnt (`:dfu`). Allerdings nur die "linke Seite" der EEPROM für geteilte Tastaturen. _Dies ist ideal für auf Elite C basierenden geteilten Tastaturen._
+-   `:dfu-split-right` - Dies flasht die Firmware wie gewohnt (`:dfu`). Allerdings nur die "rechte Seite" der EEPROM für geteilte Tastaturen. _Dies ist ideal für auf Elite C basierenden geteilten Tastaturen._
 
 ### Caterina
+
 Für Arduinos und andere ProMicro Klone (z.B. SparkFun ProMicro), wenn Du bereit bist zu kompilieren und die Tastatur zu flashen, öffne ein Befehlszeilen-Fenster und führe den Build-Befehl aus:
 
     make <meine_Tastatur>:<meine_Tastaturbelegung>:avrdude
@@ -216,6 +216,7 @@ avrdude.exe: safemode: Fuses OK (E:CB, H:D8, L:FF)
 
 avrdude.exe done.  Thank you.
 ```
+
 Sollten dabei Probleme auftreten (z.B. "Zugriff verweigert" / "Permission denied") muss der Make-Befehl mit privilegierten Berechtigungen ausgeführt werden:
 
     sudo make <meine_Tastatur>:<meine_Tastaturbelegung>:avrdude
@@ -225,7 +226,6 @@ Zusätzlich ist es möglich mehrere Tastaturen in einem Vorgang zu flashen:
     make <keyboard>:<keymap>:avrdude-loop
 
 Du kannst den Loop mit STRG + C unterbrechen sobald der Vorgang abgeschlossen ist. Die korrekte Tastenkombination kann abweichen und hängt vom Betriebssystem ab.
-
 
 ### HalfKay
 
@@ -248,11 +248,11 @@ Checking file size of ergodox_ez_xyverz.hex                          [OK]
 Read "./.build/ergodox_ez_xyverz.hex": 25584 bytes, 79.3% usage
 Waiting for Teensy device...
  (hint: press the reset button)
- ```
+```
 
 An diesem Punkt solltest Du die Tastatur zurücksetzen um den Flash-Vorgang auszulösen. Wenn dies abgeschlossen ist sollte die Ausgabe ungefähr so aussehen:
 
- ```
+```
 Found HalfKay Bootloader
 Read "./.build/ergodox_ez_xyverz.hex": 28532 bytes, 88.5% usage
 Programming.............................................................
@@ -264,11 +264,11 @@ Booting
 
 Für auf Bootmapper Client(BMC)/bootloaderHID/ATmega32A basierende Tastaturen, wenn Du bereit bist zu kompilieren und die Tastatur zu flashen, öffne ein Befehlszeilen-Fenster und führe den Build-Befehl aus:
 
-    make <meine_Tastatur>:<meine_Tastaturbelegung>:bootloaderHID
+    make <meine_Tastatur>:<meine_Tastaturbelegung>:bootloadHID
 
 Wenn deine Tastaturbelegung zum Beispiel den Namen "xyverz" hat und Du eine Tastaturbelegung für ein jj40 erzeugen möchtest, lautet der Befehl dafür:
 
-    make jj40:xyverz:bootloaderHID
+    make jj40:xyverz:bootloadHID
 
 Nachdem die Kompilation abgeschlossen ist sollte die Ausgabe ungefähr so aussehen:
 
@@ -310,9 +310,10 @@ Nachdem der Kompiliervorgang abgeschlossen ist sollte die Ausgabe ungefähr so a
 
 Für auf Bootmapper Client(BMC)/bootloaderHID/ATmega32A basierende Tastaturen, wenn Du bereit bist zu kompilieren und die Tastatur zu flashen, öffne ein Befehlszeilen-Fenster und führe den Build-Befehl aus:
 
-    make <meine_Tastatur>:<meine_Tastaturbelegung>:bootloaderHID
+    make <meine_Tastatur>:<meine_Tastaturbelegung>:bootloadHID
 
 Wenn deine Tastaturbelegung zum Beispiel den Namen "xyverz" hat und Du eine Tastaturbelegung für ein jj40 erzeugen möchtest, lautet der Befehl dafür:
+
 ```
 Linking: .build/planck_rev6_xyverz.elf                                       [OK]
 Creating binary load file for flashing: .build/planck_rev6_xyverz.bin        [OK]
@@ -355,15 +356,15 @@ Transitioning to dfuMANIFEST state
 
 Für Tastaturen mit STM32 Controller sind die DFU Befehle wie folgt:
 
-* `:dfu-util` - The default command for flashing to STM32 devices.
-* `:dfu-util` - Der Standard-Befehl für STM32 Geräte.
-* `:dfu-util-wait` - Funktioniert wie der Standard-Befehl, aber mit einem 10 Sekunden Timeout bevor erneut versucht wird die Firmware zu flashen. Mit dem Parameter `TIME_DELAY=20` auf der Befehlszeile kann der Timeout beeinflusst werden.
-   * z.B.: `make <meine_Tastatur>:<meine_Tastaturbelegung>:dfu-util TIME_DELAY=5`
-* `:dfu-util-split-left` - Gleiche Funktionsweise wie `dfu-util`, jedoch wird zusätzlich das EEPROM Setting "linke Seite" für geteilte Tastaturen gesetzt.
-* `:dfu-util-split-right` - Gleiche Funktionsweise wie `dfu-util`, jedoch wird zusätzlich das EEPROM Setting "rechte Seite" für geteilte Tastaturen gesetzt.
+-   `:dfu-util` - The default command for flashing to STM32 devices.
+-   `:dfu-util` - Der Standard-Befehl für STM32 Geräte.
+-   `:dfu-util-wait` - Funktioniert wie der Standard-Befehl, aber mit einem 10 Sekunden Timeout bevor erneut versucht wird die Firmware zu flashen. Mit dem Parameter `TIME_DELAY=20` auf der Befehlszeile kann der Timeout beeinflusst werden.
+    -   z.B.: `make <meine_Tastatur>:<meine_Tastaturbelegung>:dfu-util TIME_DELAY=5`
+-   `:dfu-util-split-left` - Gleiche Funktionsweise wie `dfu-util`, jedoch wird zusätzlich das EEPROM Setting "linke Seite" für geteilte Tastaturen gesetzt.
+-   `:dfu-util-split-right` - Gleiche Funktionsweise wie `dfu-util`, jedoch wird zusätzlich das EEPROM Setting "rechte Seite" für geteilte Tastaturen gesetzt.
 
 ## Probier's aus!
 
 Herzlichen Glückwunsch! Deine individuell angepasst Firmware wurde auf deine Tastatur übertragen!
 
- Probiere deine neue Tastatur aus und gehe sicher dass alles wie gewünscht funktioniert. Wir haben einen weiteren Artikel zum Thema [Testen und Debuggen](de/newbs_testing_debugging.md) verfasst der sich mit Problembeseitigung beschäftigt um den Beginnger-Guide abzuschließen.
+Probiere deine neue Tastatur aus und gehe sicher dass alles wie gewünscht funktioniert. Wir haben einen weiteren Artikel zum Thema [Testen und Debuggen](de/newbs_testing_debugging.md) verfasst der sich mit Problembeseitigung beschäftigt um den Beginnger-Guide abzuschließen.

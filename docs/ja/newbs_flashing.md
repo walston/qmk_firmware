@@ -13,7 +13,7 @@
 キーボードに書き込む最も簡単な方法は [QMK Toolbox](https://github.com/qmk/qmk_toolbox/releases) を使うことです。
 
 ただし、QMK Toolbox は、現在は Windows と macOS でしか使えません。
-Linuxを使用している場合(および、コマンドラインでファームウェアを書き込みたい場合)は、下の方で概説する[方法](ja/newbs_flashing.md#flash-your-keyboard-from-the-command-line)で行なう必要があります。
+Linux を使用している場合(および、コマンドラインでファームウェアを書き込みたい場合)は、下の方で概説する[方法](ja/newbs_flashing.md#flash-your-keyboard-from-the-command-line)で行なう必要があります。
 
 ### QMK Toolbox にファイルをロードする
 
@@ -59,13 +59,13 @@ planck_rev5_default.hex
 キーボードによって、この特別なモードに入る方法は異なります。
 キーボードが現在 QMK または TMK を実行しており、キーボードメーカーから具体的な指示が与えられていない場合は、次を順番に試してください。
 
-* 両方のシフトキーを押しながら、`Pause` キーを押す
-* 両方のシフトキーを押しながら、`B` キーを押す
-* キーボードのケーブルを抜いて、スペースバーとBを同時に押しながら、キーボードを再び接続し、1秒待ってからキーを放す
-* 基板(PCB)に付けられている物理的な `RESET` ボタンを押す
-* PCB 上の `BOOT0` か `RESET` のラベルの付いたヘッダピンを探し、PCB 接続中にそれらを互いにショートする
+-   両方のシフトキーを押しながら、`Pause` キーを押す
+-   両方のシフトキーを押しながら、`B` キーを押す
+-   キーボードのケーブルを抜いて、スペースバーと B を同時に押しながら、キーボードを再び接続し、1 秒待ってからキーを放す
+-   基板(PCB)に付けられている物理的な `RESET` ボタンを押す
+-   PCB 上の `BOOT0` か `RESET` のラベルの付いたヘッダピンを探し、PCB 接続中にそれらを互いにショートする
 
-うまくいけば、QMK Toolboxに次のようなメッセージが表示されます。
+うまくいけば、QMK Toolbox に次のようなメッセージが表示されます。
 
 ```
 *** Clueboard - Clueboard 66% HotSwap disconnected -- 0xC1ED:0x2390
@@ -93,7 +93,7 @@ QMK Toolbox の `Flash` ボタンをクリックします。
     Validating...  Success
     0x5600 bytes written into 0x7000 bytes memory (76.79%).
 >>> dfu-programmer atmega32u4 reset
-    
+
 *** DFU device disconnected
 *** Clueboard - Clueboard 66% HotSwap connected -- 0xC1ED:0x2390
 ```
@@ -121,7 +121,7 @@ QMK Toolbox の `Flash` ボタンをクリックします。
 この場合、あなたは明示的にブートローダを指定する方法を使わなければなりません。
 
 ブートローダは主に 5 種類のものが使われています。
-Pro Micro とそのクローンは Caterina を、Teensy は HalfKay を、OLKBの AVR ボードは QMK-DFU を、その他の ATmega32U4 ボードは DFU を、そして多くの ARM ボードは ARM DFU を使います。
+Pro Micro とそのクローンは Caterina を、Teensy は HalfKay を、OLKB の AVR ボードは QMK-DFU を、その他の ATmega32U4 ボードは DFU を、そして多くの ARM ボードは ARM DFU を使います。
 
 より詳しいブートローダの情報は、[Flashing Instructions and Bootloader Information](ja/flashing.md) にあります。
 
@@ -145,9 +145,9 @@ Creating load file for flashing: .build/planck_rev5_xyverz.hex                  
 Copying planck_rev5_xyverz.hex to qmk_firmware folder                           [OK]
 Checking file size of planck_rev5_xyverz.hex
  * File size is fine - 18574/28672
- ```
+```
 
-ここまでくると、ビルドスクリプトは5秒ごとに DFU ブートローダを探します。
+ここまでくると、ビルドスクリプトは 5 秒ごとに DFU ブートローダを探します。
 デバイスが見つかるか、あなたがキャンセルするまで、以下を繰り返します。
 
     dfu-programmer: no device present.
@@ -178,13 +178,12 @@ Checking file size of planck_rev5_xyverz.hex
 
 ファームウェアを DFU デバイスに書き込むために使用できる DFU コマンドがいくつかあります。
 
-* `:dfu` - これが通常のオプションで、DFUデバイスが使用可能になるまで待機したのちファームウェアを書き込みます。5秒ごとに、DFUデバイスが存在するかチェックしています。
-* `:dfu-ee` - 通常の hex ファイルの代わりに `eep` ファイルを書き込みます。これを使用するのはまれです。
-* `:dfu-split-left` - デフォルトオプション (`:dfu`) と同様に、通常のファームウェアが書き込まれます。ただし、分割キーボードの「左側の」 EEPROMファイルも書き込まれます。_これは、Elite C ベースの分割キーボードに最適です。_
-* `:dfu-split-right` - デフォルトオプション (`:dfu`) と同様に、通常のファームウェアが書き込まれます。ただし、分割キーボードの「右側の」EEPROMファイルも書き込まれます。_これは、Elite C ベースの分割キーボードに最適です。_
+-   `:dfu` - これが通常のオプションで、DFU デバイスが使用可能になるまで待機したのちファームウェアを書き込みます。5 秒ごとに、DFU デバイスが存在するかチェックしています。
+-   `:dfu-ee` - 通常の hex ファイルの代わりに `eep` ファイルを書き込みます。これを使用するのはまれです。
+-   `:dfu-split-left` - デフォルトオプション (`:dfu`) と同様に、通常のファームウェアが書き込まれます。ただし、分割キーボードの「左側の」 EEPROM ファイルも書き込まれます。_これは、Elite C ベースの分割キーボードに最適です。_
+-   `:dfu-split-right` - デフォルトオプション (`:dfu`) と同様に、通常のファームウェアが書き込まれます。ただし、分割キーボードの「右側の」EEPROM ファイルも書き込まれます。_これは、Elite C ベースの分割キーボードに最適です。_
 
-
-### Caterina 
+### Caterina
 
 Arduino ボードとそれらのクローンの場合(たとえば SparkFun ProMicro)、ファームウェアをコンパイルして書き込む準備ができたら、ターミナルウィンドウを開いてビルドコマンドを実行します。
 
@@ -248,19 +247,19 @@ avrdude.exe: safemode: Fuses OK (E:CB, H:D8, L:FF)
 
 avrdude.exe done.  Thank you.
 ```
+
 うまくいかない時は、以下のようにする必要があるかもしれません。
 
     sudo make <my_keyboard>:<my_keymap>:avrdude
-
 
 #### Caterina コマンド
 
 ファームウェアを DFU デバイスに書き込むために使用できる DFU コマンドがいくつかあります。
 
-* `:avrdude` - これが通常のオプションで、Caterina デバイスが(新しい COM ポートを検出して)使用可能になるまで待機し、ファームウェアを書き込みます。
-* `:avrdude-loop` - これは `:avrdude` と同じです。ただし書き込みが終了すると再び Caterina デバイスの書き込み待ちに戻ります。これは何台ものデバイスへの書き込みに便利です。_Control+C を押して、手動でこの繰り返しを終了させる必要があります。_
-* `:avrdude-split-left` - デフォルトオプション(`:avrdude`)と同様に通常のファームウェアが書き込まれます。ただし、分割キーボードの「左側の」EEPROMファイルもフラッシュされます。 _これは、Pro Micro ベースの分割キーボードに最適です。_
-* `:avrdude-split-right` - デフォルトオプション(`:avrdude`)と同様に通常のファームウェアが書き込まれます。ただし、分割キーボードの「右側の」EEPROMファイルもフラッシュされます。 _これは、Pro Micro ベースの分割キーボードに最適です。_
+-   `:avrdude` - これが通常のオプションで、Caterina デバイスが(新しい COM ポートを検出して)使用可能になるまで待機し、ファームウェアを書き込みます。
+-   `:avrdude-loop` - これは `:avrdude` と同じです。ただし書き込みが終了すると再び Caterina デバイスの書き込み待ちに戻ります。これは何台ものデバイスへの書き込みに便利です。_Control+C を押して、手動でこの繰り返しを終了させる必要があります。_
+-   `:avrdude-split-left` - デフォルトオプション(`:avrdude`)と同様に通常のファームウェアが書き込まれます。ただし、分割キーボードの「左側の」EEPROM ファイルもフラッシュされます。 _これは、Pro Micro ベースの分割キーボードに最適です。_
+-   `:avrdude-split-right` - デフォルトオプション(`:avrdude`)と同様に通常のファームウェアが書き込まれます。ただし、分割キーボードの「右側の」EEPROM ファイルもフラッシュされます。 _これは、Pro Micro ベースの分割キーボードに最適です。_
 
 ### HalfKay
 
@@ -283,12 +282,12 @@ Checking file size of ergodox_ez_xyverz.hex                                     
 Read "./.build/ergodox_ez_xyverz.hex": 25584 bytes, 79.3% usage
 Waiting for Teensy device...
  (hint: press the reset button)
- ```
+```
 
 この時点で、キーボードをリセットします。すると、次のような出力が表示されます。
 
- ```
- Found HalfKay Bootloader
+```
+Found HalfKay Bootloader
 Read "./.build/ergodox_ez_xyverz.hex": 28532 bytes, 88.5% usage
 Programming............................................................................................................................................................................
 ...................................................
@@ -349,20 +348,20 @@ Transitioning to dfuMANIFEST state
 
 ファームウェアを STM32 デバイスに書き込むために使用できる DFU コマンドがいくつかあります。
 
-* `:dfu-util` - STM32 デバイスに書き込むためのデフォルトコマンドで、STM32 ブートローダが見つかるまで待機します。
-* `:dfu-util-split-left` - デフォルトのオプション (`:dfu-util`) と同様に、通常のファームウェアが書き込まれます。 ただし、分割キーボードの「左側の」EEPROM の設定も行われます。
-* `:dfu-util-split-right` - デフォルトのオプション (`:dfu-util`) と同様に、通常のファームウェアが書き込まれます。 ただし、分割キーボードの「右側の」EEPROM の設定も行われます。
-* `:st-link-cli` - dfu-util ではなく、ST-LINK の CLI ユーティリティを介してファームウェアを書き込めます。
+-   `:dfu-util` - STM32 デバイスに書き込むためのデフォルトコマンドで、STM32 ブートローダが見つかるまで待機します。
+-   `:dfu-util-split-left` - デフォルトのオプション (`:dfu-util`) と同様に、通常のファームウェアが書き込まれます。 ただし、分割キーボードの「左側の」EEPROM の設定も行われます。
+-   `:dfu-util-split-right` - デフォルトのオプション (`:dfu-util`) と同様に、通常のファームウェアが書き込まれます。 ただし、分割キーボードの「右側の」EEPROM の設定も行われます。
+-   `:st-link-cli` - dfu-util ではなく、ST-LINK の CLI ユーティリティを介してファームウェアを書き込めます。
 
 ### BootloadHID
 
 Bootmapper Client(BMC)/bootloadHID/ATmega32A ベースのキーボードの場合、ファームウェアをコンパイルして書き込む準備ができたら、ターミナルウィンドウを開いてビルドコマンドを実行します。
 
-    make <my_keyboard>:<my_keymap>:bootloaderHID
+    make <my_keyboard>:<my_keymap>:bootloadHID
 
 たとえば、キーマップの名前が xyverz で、jj40 のキーマップを作成している場合、次のコマンドを使用します。
 
-    make jj40:xyverz:bootloaderHID
+    make jj40:xyverz:bootloadHID
 
 ファームウェアのコンパイルが完了すると、以下のように出力されます。
 
@@ -374,7 +373,7 @@ Checking file size of jj40_default.hex                                          
  * The firmware size is fine - 21920/28672 (6752 bytes free)
 ```
 
-ここまでくると、ビルドスクリプトは5秒ごとに DFU ブートローダを探します。
+ここまでくると、ビルドスクリプトは 5 秒ごとに DFU ブートローダを探します。
 デバイスが見つかるか、あなたがキャンセルするまで、以下を繰り返します。
 
 ```

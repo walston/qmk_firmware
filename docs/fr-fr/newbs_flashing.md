@@ -38,11 +38,11 @@ Afin de flasher votre firmware custom, vous devez mettre votre clavier dans un m
 
 Chaque clavier a une manière différente d'entrer dans ce mode spécial. Si votre clavier tourne actuellement QMK ou TMK et vous n'avez pas reçu d'instruction spécifiques, essayez, dans cet ordre:
 
-* Enfoncez les deux touches shift et appuyez sur `Pause`
-* Enfoncez les deux touches shift et appuyez sur `B`
-* Débranchez votre clavier, gardez shift la barre d'espace et `B` en même temps, branchez votre clavier et attendez une seconde avant de relâcher les touches.
-* Appuyez la touche physique `RESET` en bas du PCB
-* Trouvez les pins sur le PCB marquées `BOOT0` ou `RESET`, court circuitez ces pins en branchant votre PCB
+-   Enfoncez les deux touches shift et appuyez sur `Pause`
+-   Enfoncez les deux touches shift et appuyez sur `B`
+-   Débranchez votre clavier, gardez shift la barre d'espace et `B` en même temps, branchez votre clavier et attendez une seconde avant de relâcher les touches.
+-   Appuyez la touche physique `RESET` en bas du PCB
+-   Trouvez les pins sur le PCB marquées `BOOT0` ou `RESET`, court circuitez ces pins en branchant votre PCB
 
 Lorsque vous aurez réussi, vous verrez le message suivant dans QMK Toolbox:
 
@@ -118,7 +118,7 @@ Creating load file for flashing: .build/planck_rev5_xyverz.hex                  
 Copying planck_rev5_xyverz.hex to qmk_firmware folder                                               [OK]
 Checking file size of planck_rev5_xyverz.hex
  * File size is fine - 18574/28672
- ```
+```
 
 Une fois arrivé à ce stade, le script de compilation va chercher le bootloader DFU toutes les 5 secondes. Il va répéter les messages suivants jusqu'à ce que l'appareil soit trouvé ou que vous l'annuliez.
 
@@ -147,12 +147,12 @@ Une fois terminé, vous devrez mettre à zéro le contrôleur. Vous allez voir u
 
 #### Commandes DFU
 
-Il y  aun certain nombre de commandes du DFU que vous pouvez utiliser pour flasher un firmware sur un device DFU:
+Il y aun certain nombre de commandes du DFU que vous pouvez utiliser pour flasher un firmware sur un device DFU:
 
-* `:dfu` - C'est l'option standard qui attends jusqu'à e qu'un appareil DFU soit disponible, puis flash le firmware. Il va vérifier toutes les 5 secondes, afin de voir si un appareil DFU est apparu.
-* `:dfu-ee` - Ceci flash un fichier `eep` à la place du standard hex, peu commun.
-* `:dfu-split-left` - Ceci flash le firmware standard, comme la commande standard (`:dfu`). Toutefois, elle flash aussi les fichiers EEPROM du "côté gauche" pour les claviers scindés. _C'est l'option idéale pour les claviers scindés basés sur Elite C._
-* `:dfu-split-right` - Ceci flash le firmware standard, comme la commande standard (`:dfu`). Toutefois, elle flash aussi les fichiers EEPROM du "côté droit" pour les claviers scindés. _C'est l'option idéale pour les claviers scindés basés sur Elite C._
+-   `:dfu` - C'est l'option standard qui attends jusqu'à e qu'un appareil DFU soit disponible, puis flash le firmware. Il va vérifier toutes les 5 secondes, afin de voir si un appareil DFU est apparu.
+-   `:dfu-ee` - Ceci flash un fichier `eep` à la place du standard hex, peu commun.
+-   `:dfu-split-left` - Ceci flash le firmware standard, comme la commande standard (`:dfu`). Toutefois, elle flash aussi les fichiers EEPROM du "côté gauche" pour les claviers scindés. _C'est l'option idéale pour les claviers scindés basés sur Elite C._
+-   `:dfu-split-right` - Ceci flash le firmware standard, comme la commande standard (`:dfu`). Toutefois, elle flash aussi les fichiers EEPROM du "côté droit" pour les claviers scindés. _C'est l'option idéale pour les claviers scindés basés sur Elite C._
 
 ### Caterina
 
@@ -223,14 +223,14 @@ Si vous avez un souci, essayez de faire ceci:
 
     sudo make <my_keyboard>:<my_keymap>:avrdude
 
-#### Commandes Caterina 
+#### Commandes Caterina
 
 Il existe un certain nombre de commandes DFU que vous pouvez utiliser pour mettre à jour le firmware sur un périphérique DFU:
 
-* `: avrdude` - Il s’agit de l’option normale. Elle attend qu’un appareil Caterina soit disponible, puis tente de flasher le firmware. Il attendra de détecter un autre port COM, puis il flashera à nouveau.
-* `: avrdude-loop` - Cela fonctionne de la même manière que `: avrdude`, mais une fois que chaque périphérique est flashé, il tentera de flasher à nouveau. Cela peut être utile pour flasher plusieurs claviers à la suite. _Cela implique de sortir manuellement de la boucle en appuyant sur Ctrl + C, Cmd + C ou un raccourci équivalent selon votre OS_
-* `: avrdude-split-left` - Cela fonctionne de la même manière que la fonction (`: avrdude`). Toutefois, cela permet aussi de flasher le coté gauche de l'EEPROM des claviers splittés / divisés. C'est donc la méthode recommandée pour les claviers splittés avec Pro Micro.
-* `: avrdude-split-right` - Cela fonctionne de la même manière que la fonction (`: avrdude`). Toutefois, cela permet aussi de flasher le coté droite de l'EEPROM des claviers splittés / divisés. C'est donc la méthode recommandée pour les claviers splittés avec Pro Micro.
+-   `: avrdude` - Il s’agit de l’option normale. Elle attend qu’un appareil Caterina soit disponible, puis tente de flasher le firmware. Il attendra de détecter un autre port COM, puis il flashera à nouveau.
+-   `: avrdude-loop` - Cela fonctionne de la même manière que `: avrdude`, mais une fois que chaque périphérique est flashé, il tentera de flasher à nouveau. Cela peut être utile pour flasher plusieurs claviers à la suite. _Cela implique de sortir manuellement de la boucle en appuyant sur Ctrl + C, Cmd + C ou un raccourci équivalent selon votre OS_
+-   `: avrdude-split-left` - Cela fonctionne de la même manière que la fonction (`: avrdude`). Toutefois, cela permet aussi de flasher le coté gauche de l'EEPROM des claviers splittés / divisés. C'est donc la méthode recommandée pour les claviers splittés avec Pro Micro.
+-   `: avrdude-split-right` - Cela fonctionne de la même manière que la fonction (`: avrdude`). Toutefois, cela permet aussi de flasher le coté droite de l'EEPROM des claviers splittés / divisés. C'est donc la méthode recommandée pour les claviers splittés avec Pro Micro.
 
 ### HalfKay
 
@@ -253,12 +253,12 @@ Checking file size of ergodox_ez_xyverz.hex                                     
 Read "./.build/ergodox_ez_xyverz.hex": 25584 bytes, 79.3% usage
 Waiting for Teensy device...
  (hint: press the reset button)
- ```
+```
 
 Une fois terminé, réinitialisez votre board. Une fois fait, vous verrez une sortie comme ça:
 
- ```
- Found HalfKay Bootloader
+```
+Found HalfKay Bootloader
 Read "./.build/ergodox_ez_xyverz.hex": 28532 bytes, 88.5% usage
 Programming............................................................................................................................................................................
 ...................................................
@@ -317,22 +317,22 @@ Transitioning to dfuMANIFEST state
 
 #### Commandes STM32
 
-Il y  aun certain nombre de commandes du DFU que vous pouvez utiliser pour flasher un firmware sur un device STM32:
+Il y aun certain nombre de commandes du DFU que vous pouvez utiliser pour flasher un firmware sur un device STM32:
 
-* `:dfu-util` - C'est l'option standard pour flasher un appareil STM32. Elle attendra qu'un bootloader STM32 soit présent et tentera de l’utiliser.
-* `:dfu-util-left` - Ceci flasher le firmware standard, comme la commande standard (`:dfu-util`). Toutefois, elle flasher aussi les fichiers EEPROM du "côté gauche" pour les claviers scindés.
-* `:dfu-util-right` - Ceci flash le firmware standard, comme la commande standard (`:dfu-util`). Toutefois, elle flash aussi les fichiers EEPROM du "côté droit" pour les claviers scindés.
-* `:st-link-cli` - Cela permet de flasher le firmware avec l'utilitaire en ligne de commande ST-LINK's plutôt que d'utiliser dfu-util.
+-   `:dfu-util` - C'est l'option standard pour flasher un appareil STM32. Elle attendra qu'un bootloader STM32 soit présent et tentera de l’utiliser.
+-   `:dfu-util-left` - Ceci flasher le firmware standard, comme la commande standard (`:dfu-util`). Toutefois, elle flasher aussi les fichiers EEPROM du "côté gauche" pour les claviers scindés.
+-   `:dfu-util-right` - Ceci flash le firmware standard, comme la commande standard (`:dfu-util`). Toutefois, elle flash aussi les fichiers EEPROM du "côté droit" pour les claviers scindés.
+-   `:st-link-cli` - Cela permet de flasher le firmware avec l'utilitaire en ligne de commande ST-LINK's plutôt que d'utiliser dfu-util.
 
 ### BootloadHID
 
 Pour les claviers basés sur Bootmapper Client(BMC)/bootloadHID/ATmega32A, si vous êtes prêts à compiler et flasher le firmware, ouvrez votre fenêtre de terminal et lancez la commande suivante :
 
-    make <my_keyboard>:<my_keymap>:bootloaderHID
+    make <my_keyboard>:<my_keymap>:bootloadHID
 
 Par exemple, si votre keymap s'appelle "xyverz" et que vous compilez une keymap pour un jj40, utilisez cette commande:
 
-    make jj40:xyverz:bootloaderHID
+    make jj40:xyverz:bootloadHID
 
 Une fois le firmware compilé, vous aurez cette sortie:
 
