@@ -42,6 +42,7 @@ uint8_t init_mcp23018(void);
 #endif
 
 #define ___ KC_NO
+#define XXX KC_NO
 
 /* This is a shortcut to help you visually see your layout.
  *
@@ -73,12 +74,12 @@ uint8_t init_mcp23018(void);
     )                       \
    /* matrix positions */   \
    {                        \
-    { ___, ___, ___, ___, ___, ___, ___, R46, R48, R4A, R4B, R4C, R4D, R3D },   \
-    { L40, L41, L42, L43, L45, L06, ___, R36, R37, R38, R39, R3A, R3B, R3C },   \
-    { L30, L31, L32, L33, L34, L35, ___, R26, R27, R28, R29, R2A, R2B, R2C },   \
-    { L20, L21, L22, L23, L24, L25, ___, R17, R18, R19, R1A, R1B, R1C, R1D },   \
-    { L10, L11, L12, L13, L14, L15, ___, R07, R08, R09, R0A, R0B, R0C, R0D },   \
-    { L00, L01, L02, L03, L04, L05, ___, ___, ___, ___, ___, ___, ___, ___ }    \
+    { ___, ___, ___, ___, ___, ___, ___, R46, R48, R4A, R4B, R4C, R4D, R3D },  \
+    { L40, L41, L42, L43, L45, L06, ___, R36, R37, R38, R39, R3A, R3B, R3C },  \
+    { L30, L31, L32, L33, L34, L35, ___, R26, R27, R28, R29, R2A, R2B, R2C },  \
+    { L20, L21, L22, L23, L24, L25, ___, R17, R18, R19, R1A, R1B, R1C, R1D },  \
+    { L10, L11, L12, L13, L14, L15, ___, R07, R08, R09, R0A, R0B, R0C, R0D },  \
+    { L00, L01, L02, L03, L04, L05, ___, R16, ___, ___, ___, ___, ___, ___ }   \
    }
 
 #define LAYOUT LAYOUT_sp64
