@@ -1,6 +1,4 @@
-# JJ Ergo
-
-A ps2avr Ergodox clone
+# YMDK SP64
 
 -   Keyboard Maintainer: [Nathan Walston](https://github.com/walston)
 -   Hardware Supported: YMDK SP64 with the ATmega32a chip.
