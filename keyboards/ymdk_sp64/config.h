@@ -22,12 +22,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define VENDOR_ID 0xE662
 #define PRODUCT_ID 0x422D
 #define DEVICE_VER 0x0100
-#define MANUFACTURER KPRepublic
-#define PRODUCT YMDK SP64
-#define DESCRIPTION YMDK SP64
+#define MANUFACTURER YMDK
+#define PRODUCT SP64
+#define DESCRIPTION YMDK Split 64 SP64 CNC Aluminum Case Plate Hot Socket Hot Swap PCB Underglow RGB Fully Programmable DIY Kit
 
-#define MATRIX_ROWS 5
-#define MATRIX_COLS 14
+#define MATRIX_ROWS 15
+#define MATRIX_COLS 6
 
 #define RIGHT_HALF
 
