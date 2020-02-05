@@ -26,8 +26,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PRODUCT SP64
 #define DESCRIPTION YMDK Split 64 SP64 CNC Aluminum Case Plate Hot Socket Hot Swap PCB Underglow RGB Fully Programmable DIY Kit
 
-#define MATRIX_ROWS 15
-#define MATRIX_COLS 6
+#define MATRIX_ROWS 6
+#define MATRIX_COLS 15
 
 #define RIGHT_HALF
 
