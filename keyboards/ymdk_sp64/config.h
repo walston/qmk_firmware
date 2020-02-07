@@ -19,12 +19,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "config_common.h"
 
-#define VENDOR_ID 0xE662
-#define PRODUCT_ID 0x422D
-#define DEVICE_VER 0x0100
-#define MANUFACTURER YMDK
-#define PRODUCT SP64
-#define DESCRIPTION YMDK Split 64 SP64 CNC Aluminum Case Plate Hot Socket Hot Swap PCB Underglow RGB Fully Programmable DIY Kit
+#define VENDOR_ID       0x20A0
+#define PRODUCT_ID      0x422D
+#define DEVICE_VER      0x0200
+// TODO: share these strings with usbconfig.h
+// Edit usbconfig.h to change these.
+#define MANUFACTURER    ymdk
+#define PRODUCT sp64
+#define DESCRIPTION YMDK Split 64
 
 #define MATRIX_ROWS 6
 #define MATRIX_COLS 15
@@ -39,9 +41,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   #define NO_ACTION_FUNCTION
 #endif
 
-/* defined by default; to change, uncomment and set to the combination you want */
-// #define IS_COMMAND() (get_mods() == MOD_MASK_SHIFT)
-
-/* Bootmagic Lite key configuration */
-// #define BOOTMAGIC_LITE_ROW 0
-// #define BOOTMAGIC_LITE_COLUMN 0
+/* RGB underglow */
+// Not currently working
+#define RGB_DI_PIN B0 // ATMega32A boards don't have PORTE so the pin can't be standard E2
+#define RGBLED_NUM 27
+#define RGBLIGHT_HUE_STEP 8
+#define RGBLIGHT_SAT_STEP 8
+#define RGBLIGHT_VAL_STEP 8
+#define RGBLIGHT_LIMIT_VAL 200 /* The maximum brightness level */
+#define RGBLIGHT_SLEEP  /* If defined, the RGB lighting will be switched off when the host goes to sleep */
